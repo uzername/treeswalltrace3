@@ -1,0 +1,31 @@
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+#container-wallcoords {
+    display:table;
+    margin: 10px;
+}
+#container-observercoords {
+    display:table;
+    margin-left:15px;
+}
+#container-treecoords {
+    display:table;
+}
+.container-wallcoords-point {
+display:table-row
+}
+.container-wallcoords-point-entry {
+display:table-cell
+}
+#container-treecoords-main {
+    display: table-row-group
+}
+.active-entry {
+    color: blue;
+    cursor:pointer;
+    text-decoration: underline;
+}

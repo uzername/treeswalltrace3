@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Trees Wall Trace</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="main.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="listhandler.js"></script>    
+        <script type="text/javascript" src="EvaluateRoutines.js"></script>
+        <script> 
+        var performEvaluation = function() {
+            var structWithIDs = {
+                observerX: "input-observercoordX",
+                observerY: "input-observercoordY",
+                wallCoord1X: "input-wallcoord1X",
+                wallCoord2X: "input-wallcoord2X",
+                wallCoord1Y: "input-observercoordY",
+                wallCoord2Y: "input-wallcoord2Y",
+                
+                numberOfElements: currentNumberOfElements,
+                xCenterTemplate: "XCoordEntry",
+                yCenterTemplate: "YCoordEntry",
+                radiusTemplate: "RadiusEntry"
+            };
+            CommonEvaluator.collectData(structWithIDs);
+        }
+        </script>
+    </head>
+    <body>
+        <div id="container-description">В лесу стоит стена ограниченной длины. Координаты центров и радиусы деревьев известны. Выяснить, какие части стены не будут видны наблюдателю, находящемуся в заданной точке</div>
+        <div id="content-page1">
+        <div class="clearfix" id="container-observercoords"> 
+         <div style="display: table-caption" >Координаты наблюдателя</div>
+         <div class="container-wallcoords-point"> 
+                <div class="container-wallcoords-point-entry"> <input type="text" id="input-observercoordX"> </div> 
+                <div class="container-wallcoords-point-entry"> <input type="text" id="input-observercoordY">  </div>
+         </div>
+        </div>
+        <div id="container-wallcoords" class="clearfix"> 
+            <div style="display: table-caption" >Координаты стены</div>
+            <div class="container-wallcoords-point"> 
+                <div class="container-wallcoords-point-entry">Начальная Точка</div> 
+                <div class="container-wallcoords-point-entry"> <input type="text" id="input-wallcoord1X"> </div> 
+                <div class="container-wallcoords-point-entry"> <input type="text" id="input-wallcoord1Y">  </div>
+            </div>
+            <div class="container-wallcoords-point"> 
+                <div class="container-wallcoords-point-entry">Конечная Точка</div> 
+                <div class="container-wallcoords-point-entry"> <input type="text" id="input-wallcoord2X"> </div>
+                <div class="container-wallcoords-point-entry">    <input type="text" id="input-wallcoord2Y"> </div>
+            </div>
+        </div>
+        <div id="treecoords-rowbutton"> <span id="addnew" class="active-entry">[Добавить новую запись]</span> <a href="#remselected" id="remselected">[Удалить выбранные]</a> </div>
+        <div id="container-treecoords-entry"> </div>
+        <div id="container-treecoords">
+            <div style="display:table-header-group"> 
+                <div style="display:table-cell"> </div>
+                <div style="display:table-cell">Координаты центра</div> 
+                <div style="display:table-cell">Радиус</div> 
+            </div>
+            <div id="container-treecoords-main">
+            </div>
+        </div>
+        <input type="button" value="[EVALUATE]" onclick="performEvaluation()"/>
+        </div>
+        <div id="content-page2" style="display: none">
+            
+        </div>
+    </body>
+</html>
